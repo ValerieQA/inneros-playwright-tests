@@ -108,6 +108,12 @@ docker run --rm -e CI=true playwright-ecommerce
 
 The image `mcr.microsoft.com/playwright:v1.65.0-noble` already contains all browsers and system libraries, so the environment is identical on every machine. Its version must match `@playwright/test` in `package.json`.
 
+In CI the same container runs from **Actions → "Playwright in Docker" → Run workflow**, or from a terminal:
+
+```bash
+gh workflow run playwright-docker.yml --ref ecommerce-framework
+```
+
 ## Project structure
 
 ```
