@@ -1,5 +1,7 @@
 # InnerOS Playwright Tests
 
+[![Playwright Test Suite](https://github.com/ValerieQA/inneros-playwright-tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/ValerieQA/inneros-playwright-tests/actions/workflows/playwright.yml)
+
 Автотесты на Playwright (Python + pytest) для сайта https://www.inneros.online и учебные тесты.
 Учебный проект курса Coursera по Playwright.
 
