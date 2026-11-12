@@ -1,0 +1,17 @@
+# Шаг 4 задания (опционально): те же тесты внутри Docker-образа Playwright.
+# Запускается вручную: вкладка Actions → "Playwright in Docker" → Run workflow.
+name: Playwright in Docker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t playwright-tests .
+      - name: Run tests in Docker
+        run: docker run --rm playwright-tests

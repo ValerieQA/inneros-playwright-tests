@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Загрузка документов</title></head>
+<body>
+  <h1>Загрузка документов</h1>
+
+  <!-- 10 одинаковых строк: подпись + поле + кнопка Submit -->
+  <div class="row" data-doc="passport"><label>Паспорт <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="visa"><label>Виза <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="insurance"><label>Страховка <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="ticket"><label>Билет <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="hotel"><label>Отель <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="photo"><label>Фото <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="bank"><label>Выписка из банка <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row" data-doc="work"><label>Справка с работы <input type="text"></label><button>Submit</button><span class="status"></span></div>
+  <div class="row locked" data-doc="invite"><label>Приглашение <input type="text" disabled></label><button disabled>Submit</button><span class="status">заблокировано</span></div>
+  <div class="row" data-doc="other"><label>Другое <input type="text"></label><button>Submit</button><span class="status"></span></div>
+
+  <script>
+    // по нажатию Submit через 1 секунду в строке появляется «Отправлено: ...»
+    document.querySelectorAll('.row button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('.row');
+        const value = row.querySelector('input').value;
+        setTimeout(() => { row.querySelector('.status').textContent = 'Отправлено: ' + value; }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>

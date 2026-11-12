@@ -1,0 +1,10 @@
+.env
+.auth/
+playwright/.auth/
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+test-results/
+playwright-report/
+report.html
