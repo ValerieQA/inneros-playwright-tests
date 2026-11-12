@@ -86,7 +86,7 @@ npx playwright show-trace test-results/<test-folder>/trace.zip   # open a trace
 | Workflow | Trigger | What it does |
 |---|---|---|
 | `playwright.yml` | push and pull request to `main` or `ecommerce-framework`, manual | installs dependencies and browsers, runs all tests, uploads the HTML report (and traces/screenshots/videos on failure) |
-| `update-snapshots.yml` | manual | records visual baselines on Linux and commits them |
+| `update-snapshots.yml` | push that changes `tests/visual/*.ts`, manual | records visual baselines on Linux and commits them |
 | `playwright-docker.yml` | manual | runs the suite inside the official Playwright Docker image |
 
 **Where to see results:** repository → **Actions** → choose a run → **Artifacts** → download `playwright-report` and open `index.html` (or run `npx playwright show-report <folder>`).
@@ -96,7 +96,7 @@ npx playwright show-trace test-results/<test-folder>/trace.zip   # open a trace
 Screenshots depend on fonts and rendering, so baselines are recorded in the same Linux environment the CI uses, not on a Mac or Windows laptop.
 
 - First CI run: missing baselines are recorded automatically (`--update-snapshots=missing`), so the run doesn't fail.
-- To store or refresh the baselines: **Actions → "Update visual baselines" → Run workflow**. It commits the new `.png` files to `tests/visual/visual.spec.ts-snapshots/`.
+- To store or refresh the baselines: change the visual test, or run **Actions → "Update visual baselines" → Run workflow** (manual runs require the workflow file on the default branch). It commits the new `.png` files to `tests/visual/visual.spec.ts-snapshots/`.
 - After an **intentional** UI change, run that workflow again and review the image diff in the pull request like any code change. Never approve new baselines without looking at them.
 
 ## Docker

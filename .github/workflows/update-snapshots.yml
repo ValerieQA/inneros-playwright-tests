@@ -1,8 +1,17 @@
 # Records visual baselines in the same Linux environment the tests run in,
-# and commits them to the repository. Run manually: Actions → "Update visual baselines" → Run workflow.
+# and commits them to the repository.
+# Runs when the visual tests (or this workflow) change on the ecommerce-framework branch,
+# or manually: Actions → "Update visual baselines" → Run workflow. Manual runs need this file
+# on the default branch too, which is why the push trigger exists for this branch.
+# The bot's commit uses GITHUB_TOKEN, so it does not re-trigger any workflow (no loops).
 name: Update visual baselines
 
 on:
+  push:
+    branches: [ecommerce-framework]
+    paths:
+      - 'tests/visual/*.ts'
+      - '.github/workflows/update-snapshots.yml'
   workflow_dispatch:
 
 permissions:
