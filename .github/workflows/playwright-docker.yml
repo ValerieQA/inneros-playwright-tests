@@ -1,0 +1,17 @@
+# Same suite inside the official Playwright Docker image (browsers + system deps preinstalled).
+# Run manually: Actions → "Playwright in Docker" → Run workflow.
+name: Playwright in Docker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t playwright-ecommerce .
+      - name: Run tests in container
+        run: docker run --rm -e CI=true playwright-ecommerce

@@ -1,0 +1,9 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+# saved login sessions are credentials — never commit them
+/playwright/.auth/
+.env
+.DS_Store

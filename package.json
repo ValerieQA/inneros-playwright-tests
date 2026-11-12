@@ -1,0 +1,22 @@
+{
+  "name": "playwright-ecommerce-framework",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright + TypeScript test framework for login, cart and checkout flows (saucedemo.com)",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:login": "playwright test tests/login",
+    "test:cart": "playwright test tests/cart",
+    "test:checkout": "playwright test tests/checkout",
+    "test:visual": "playwright test tests/visual --project=chromium",
+    "test:last-failed": "playwright test --last-failed",
+    "update-snapshots": "playwright test tests/visual --project=chromium --update-snapshots",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "^22.0.0"
+  }
+}
